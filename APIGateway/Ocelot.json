@@ -1,0 +1,39 @@
+{
+    // Define the routing for all the microservices 
+
+    "ReRoutes": [
+        {
+            "DownstreamPathTemplate": "/api/user",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    // Mention public ip 
+                    "Host": "localhost",
+                    "Port": "50435"
+                }
+
+            ],
+            // API gateway level 
+            "UpstreamPathTemplate": "/user",
+            "UpstreamHttpMethod": [ "GET", "POST" ]
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/user/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": "50435"
+                }
+
+            ],
+            "UpstreamPathTemplate": "/user/{id}",
+            "UpstreamHttpMethod": [ "GET" ]
+        }
+    ]
+}
+        
+
+
+
